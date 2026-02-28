@@ -23,6 +23,7 @@ export default function Home() {
       const response = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${selectedCity}&appid=${API_KEY}&units=metric`
       );
+
       setWeather(response.data);
     } catch (err) {
       setError("City not found");
@@ -54,7 +55,6 @@ export default function Home() {
     }
   };
 
-  // Weather icon component
   const WeatherIcon = () => {
     if (!weather) return <WiDaySunny className="text-6xl" />;
     switch (weather.weather[0].main) {
@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <div
-      className="h-screen w-full flex flex-col justify-between px-6 py-6 text-black"
+      className="min-h-screen w-full flex flex-col justify-between px-6 py-6 text-black"
       style={{ background: getBackground() }}
     >
       {/* Top Section */}
@@ -83,10 +83,14 @@ export default function Home() {
             className="text-2xl cursor-pointer"
             onClick={() => navigate("/")}
           />
+
           <div className="flex items-center gap-2 text-2xl font-bold truncate">
             <MdLocationOn />
-            <span>{weather?.name}, {weather?.sys?.country}</span>
+            <span>
+              {weather?.name}, {weather?.sys?.country}
+            </span>
           </div>
+
           <FaSearch
             className="text-2xl cursor-pointer"
             onClick={() => {
@@ -98,6 +102,7 @@ export default function Home() {
             }}
           />
         </div>
+
         <p className="text-center mt-3 text-sm">
           {new Date().toLocaleString()}
         </p>
@@ -107,7 +112,7 @@ export default function Home() {
       {loading && <p className="text-center mt-4">Loading...</p>}
       {error && <p className="text-center text-red-500 mt-4">{error}</p>}
 
-      {/* Weather Main Info */}
+      {/* Weather Info */}
       {weather && (
         <>
           <div className="flex flex-col md:flex-row justify-between items-center mt-10">
@@ -119,6 +124,7 @@ export default function Home() {
                 {weather.weather[0].description}
               </p>
             </div>
+
             <div className="mt-6 md:mt-0">
               <WeatherIcon />
             </div>
@@ -129,6 +135,7 @@ export default function Home() {
               <p>Humidity: {weather.main.humidity}%</p>
               <p>Rain: {weather.rain ? "Yes" : "No"}</p>
             </div>
+
             <div className="space-y-4 text-left md:text-right mt-4 md:mt-0">
               <p>Wind: {weather.wind.speed} Km/h</p>
               <p>Pressure: {weather.main.pressure} hPa</p>
@@ -139,6 +146,8 @@ export default function Home() {
 
       {/* Bottom Navigation */}
       <div className="flex justify-between items-center text-2xl mt-10">
+
+        {/* Home */}
         <FaHome
           className="cursor-pointer"
           onClick={() => {
@@ -146,6 +155,8 @@ export default function Home() {
             getWeather(defaultCity);
           }}
         />
+
+        {/* Location */}
         <MdLocationOn
           className="cursor-pointer"
           onClick={() => {
@@ -156,9 +167,11 @@ export default function Home() {
             }
           }}
         />
+
+        {/* Settings → Profile */}
         <FaCog
           className="cursor-pointer"
-          onClick={() => alert("Settings clicked!")}
+          onClick={() => navigate("/profile")}
         />
       </div>
     </div>

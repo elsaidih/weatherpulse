@@ -17,9 +17,9 @@ export default function Landing() {
     setMessage("");
 
     // DEMO credentials
-    if (emailOrUsername === "demo@example.com" && password === "123") {
+    if (emailOrUsername === "SAIDI@example.com" && password === "saidi@1947") {
       const demoToken = "demo-token";
-      const demoUser = { name: "Demo User", email: "demo@example.com" };
+      const demoUser = { name: "SAIDI User", email: "SAIDI@example.com" };
 
       // Save in localStorage
       localStorage.setItem("authToken", demoToken);
