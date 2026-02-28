@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Landing from "./pages/Landing";
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Landing from "./pages/Landing.jsx";
+import Home from "./pages/Home.jsx";
+import Profile from "./pages/Profile.jsx";
 import "./index.css";
 import ProtectedRoute from "./components/ProtectedRoute";
 
