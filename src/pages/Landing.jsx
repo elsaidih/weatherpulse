@@ -16,12 +16,10 @@ export default function Landing() {
     setError("");
     setMessage("");
 
-    // DEMO credentials
     if (emailOrUsername === "SAIDI@example.com" && password === "saidi@1947") {
       const demoToken = "demo-token";
       const demoUser = { name: "SAIDI User", email: "SAIDI@example.com" };
 
-      // Save in localStorage
       localStorage.setItem("authToken", demoToken);
       localStorage.setItem("user", JSON.stringify(demoUser));
 
@@ -44,8 +42,8 @@ export default function Landing() {
     >
       {/* Logo */}
       <div className="absolute top-6 left-1/2 transform -translate-x-1/2 flex items-center gap-2">
-        <WiDaySunny className="text-white text-3xl md:text-4xl" />
-        <span className="font-semibold text-white text-lg md:text-xl">WeatherPulse</span>
+        <WiDaySunny className="text-black text-3xl md:text-4xl" />
+        <span className="font-semibold text-black text-lg md:text-xl">WeatherPulse</span>
       </div>
 
       {/* Success Message */}
@@ -57,8 +55,10 @@ export default function Landing() {
 
       {/* Main Content */}
       <div className="flex flex-col items-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white">WeatherPulse</h1>
-        <p className="mt-4 text-base sm:text-lg md:text-xl text-white opacity-90 max-w-md">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-black">
+          WeatherPulse
+        </h1>
+        <p className="mt-4 text-base sm:text-lg md:text-xl text-black opacity-90 max-w-md">
           Real-time weather updates anywhere
         </p>
 
@@ -75,7 +75,7 @@ export default function Landing() {
 
         {/* Sign In Trigger */}
         <p
-          className="mt-6 text-white hover:underline cursor-pointer text-sm sm:text-base"
+          className="mt-6 text-black hover:underline cursor-pointer text-sm sm:text-base"
           onClick={() => setShowSignIn(true)}
         >
           Sign In
